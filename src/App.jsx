@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -20,11 +20,11 @@ function AppInner() {
       <Navbar />
       <main id="main-content">
         <Routes>
-          <Route path="/"           element={<Home />} />
-          <Route path="/about"      element={<About />} />
-          <Route path="/products"   element={<Products />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/contact"    element={<Contact />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />
@@ -34,8 +34,8 @@ function AppInner() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppInner />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
