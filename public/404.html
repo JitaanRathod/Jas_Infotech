@@ -1,0 +1,17 @@
+<!-- public/404.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>JAS Infotech</title>
+    <script>
+        var path = window.location.pathname.replace(/\/[^\/]*$/, '');
+        sessionStorage.redirect = window.location.href;
+        window.location.replace(path + '/?p=1');
+    </script>
+</head>
+
+<body></body>
+
+</html>
