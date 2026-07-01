@@ -109,6 +109,37 @@ const Products = () => {
         </div>
       </nav>
 
+      {/* ========== HARDWARE GRID ========== */}
+      {showHardware && filteredHardware.length > 0 && (
+        <section className="hardware-section" aria-labelledby="hardware-heading">
+          <div className="container">
+            <ScrollReveal>
+              <span className="section-label">Enterprise Hardware</span>
+              <h2 id="hardware-heading" className="section-heading">
+                <span>Hardware</span> Products
+              </h2>
+            </ScrollReveal>
+
+            <div className="products-grid" role="list">
+              {filteredHardware.map((product, i) => (
+                <ScrollReveal key={product.name} delay={i * 60}>
+                  <div role="listitem">
+                    <ProductCard
+                      image={product.image}
+                      name={product.name}
+                      category={product.category}
+                      badge={product.badge}
+                      description={product.description}
+                      onEnquire={() => navigate('/contact')}
+                    />
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ========== SOFTWARE ========== */}
       {showSoftware && (
         <section className="software-section" aria-labelledby="software-heading">
@@ -145,37 +176,6 @@ const Products = () => {
                         <ArrowRight size={14} />
                       </button>
                     </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ========== HARDWARE GRID ========== */}
-      {showHardware && filteredHardware.length > 0 && (
-        <section className="hardware-section" aria-labelledby="hardware-heading">
-          <div className="container">
-            <ScrollReveal>
-              <span className="section-label">Enterprise Hardware</span>
-              <h2 id="hardware-heading" className="section-heading">
-                <span>Hardware</span> Products
-              </h2>
-            </ScrollReveal>
-
-            <div className="products-grid" role="list">
-              {filteredHardware.map((product, i) => (
-                <ScrollReveal key={product.name} delay={i * 60}>
-                  <div role="listitem">
-                    <ProductCard
-                      image={product.image}
-                      name={product.name}
-                      category={product.category}
-                      badge={product.badge}
-                      description={product.description}
-                      onEnquire={() => navigate('/contact')}
-                    />
                   </div>
                 </ScrollReveal>
               ))}

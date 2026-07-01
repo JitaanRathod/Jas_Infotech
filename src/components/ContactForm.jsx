@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { CheckCircle2, Send } from 'lucide-react';
 
+const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || '/api/contact';
+
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -15,9 +19,39 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+
+    if (!FORM_ENDPOINT || FORM_ENDPOINT.includes('your-form-id')) {
+      setError('Contact endpoint is not configured. Set VITE_CONTACT_FORM_ENDPOINT in .env with your form endpoint.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      setSubmitted(true);
+      setFormData({ name: '', phone: '', email: '', service: '', message: '' });
+    } catch (err) {
+      setError('Unable to send your message right now. Please try again later.');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -36,7 +70,7 @@ const ContactForm = () => {
         <button
           className="btn btn--outline-red"
           style={{ marginTop: '24px' }}
-          onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', email: '', service: '', message: '' }); }}
+          onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', email: '', service: '', message: '' }); setError(''); }}
         >
           Send Another Message
         </button>
@@ -120,9 +154,11 @@ const ContactForm = () => {
         />
       </div>
 
-      <button type="submit" className="btn btn--red contact-form__submit" id="send-enquiry-btn">
+      {error && <div className="contact-form__error">{error}</div>}
+
+      <button type="submit" className="btn btn--red contact-form__submit" id="send-enquiry-btn" disabled={loading}>
         <Send size={16} />
-        Send Enquiry →
+        {loading ? 'Sending…' : 'Send Enquiry →'}
       </button>
     </form>
   );

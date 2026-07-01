@@ -50,7 +50,7 @@ const FEATURED_PRODUCTS = [
 const WHY_FEATURES = [
   { icon: ShieldCheck, title: 'Authorized Partner', desc: 'Certified dealer for Tally & top hardware brands like HP, Netgear, D-Link & WD.' },
   { icon: Headphones, title: 'After-Sales Support', desc: 'Dedicated support team for troubleshooting, maintenance & upgrades.' },
-  { icon: Zap, title: 'Fast Delivery & Installation', desc: 'Same-day delivery in Vapi. On-site installation & configuration included.' },
+  { icon: Zap, title: 'Fast Delivery & Installation', desc: 'Delivery and installation within a week.' },
   { icon: MapPin, title: 'Local & Reliable', desc: 'Serving Vapi, Silvassa, Daman & surrounding industrial belt since inception.' },
 ];
 
@@ -74,7 +74,7 @@ const Home = () => {
           <div className="hero__content">
             <div className="hero__badge">
               <BadgeCheck size={14} />
-              Authorized Tally Partner
+              Authorized Hardware and Software Solutions Provider
             </div>
 
             <h1 className="hero__title">
@@ -132,26 +132,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========== SOFTWARE SERVICES ========== */}
-      <section className="services-section" aria-labelledby="services-heading">
-        <div className="container">
-          <ScrollReveal>
-            <span className="section-label">What We Offer</span>
-            <h2 id="services-heading" className="section-heading">
-              Tally Solutions &amp; <span>Cloud Services</span>
-            </h2>
-          </ScrollReveal>
-
-          <div className="services-grid">
-            {SERVICES.map((s, i) => (
-              <ScrollReveal key={s.title} delay={i * 120}>
-                <ServiceCard icon={s.icon} title={s.title} description={s.description} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ========== FEATURED HARDWARE ========== */}
       <section className="featured-products" aria-labelledby="hardware-heading">
         <div className="container">
@@ -184,6 +164,26 @@ const Home = () => {
               </Link>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ========== SOFTWARE SERVICES ========== */}
+      <section className="services-section" aria-labelledby="services-heading">
+        <div className="container">
+          <ScrollReveal>
+            <span className="section-label">What We Offer</span>
+            <h2 id="services-heading" className="section-heading">
+              Tally Solutions &amp; <span>Cloud Services</span>
+            </h2>
+          </ScrollReveal>
+
+          <div className="services-grid">
+            {SERVICES.map((s, i) => (
+              <ScrollReveal key={s.title} delay={i * 120}>
+                <ServiceCard icon={s.icon} title={s.title} description={s.description} />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

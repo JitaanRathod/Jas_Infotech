@@ -143,10 +143,19 @@
   grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-lg);
   margin-top: var(--sp-2xl);
+  align-items: stretch;
+}
+
+.products-grid > div {
+  display: flex;
 }
 
 /* Product Card */
 .product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
   background: var(--surface-white);
   border-radius: var(--radius-md);
   overflow: hidden;

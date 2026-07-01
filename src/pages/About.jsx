@@ -146,7 +146,7 @@ const About = () => {
               <div className="offer-panel offer-panel--red">
                 <div className="offer-panel__title">💻 Software Services</div>
                 <ul className="offer-panel__list">
-                  {['Tally Prime', 'WhatsApp Integration', 'Tally on Cloud', 'Annual Maintenance Contracts', 'Tally Training & Support', 'GST Filing Assistance'].map(item => (
+                  {['Tally Prime', 'WhatsApp Integration', 'Tally on Cloud', 'Annual Maintenance Contracts', 'Tally Training & Support'].map(item => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -157,7 +157,7 @@ const About = () => {
               <div className="offer-panel offer-panel--dark">
                 <div className="offer-panel__title">🖥️ Hardware Products</div>
                 <ul className="offer-panel__list">
-                  {['Laptops & Desktops', 'Monitors', 'Printers & Ink', 'SSDs & HDDs', 'Routers & Switches', 'Access Points', 'Network Cabling', 'UPS & Power Solutions'].map(item => (
+                  {['Laptops & Desktops', 'Monitors', 'Printers & Ink', 'SSDs & HDDs', 'Routers & Switches', 'Access Points', 'Network Cabling'].map(item => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -179,14 +179,14 @@ const About = () => {
                   <h2>Serving the Industrial Belt</h2>
                   <p>
                     Serving the Vapi–Silvassa–Daman industrial belt with on-site support
-                    and next-day delivery. Whether you're a startup or a large enterprise,
+                    and delivery within a week. Whether you're a startup or a large enterprise,
                     JAS Infotech has the resources to keep your technology running smoothly.
                   </p>
                   <div style={{ marginTop: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                     <span style={{ background: 'rgba(204,31,26,0.8)', color: '#fff', padding: '6px 16px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600 }}>Vapi</span>
                     <span style={{ background: 'rgba(204,31,26,0.8)', color: '#fff', padding: '6px 16px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600 }}>Silvassa</span>
                     <span style={{ background: 'rgba(204,31,26,0.8)', color: '#fff', padding: '6px 16px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600 }}>Daman</span>
-                    <span style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', padding: '6px 16px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600 }}>Umbergaon</span>
+                    <span style={{ background: 'rgba(204,31,26,0.8)', color: '#fff', padding: '6px 16px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: 600 }}>Umbergaon</span>
                   </div>
                 </ScrollReveal>
               </div>

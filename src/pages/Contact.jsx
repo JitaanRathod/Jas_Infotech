@@ -93,7 +93,7 @@ const Contact = () => {
               <div className="contact-map">
                 <h3>Find Us on the Map</h3>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1741607097143!2d72.90582687501766!3d20.371498381262703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0d046f9bca975%3A0x2c3b39b024fce9fb!2sGIDC%2C%20Vapi%2C%20Gujarat%20396195!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src="https://maps.google.com/maps?q=JAS%20Infotech%2C%20Shop%20No.%209%2C%20Char%20Rasta%2C%20Silvassa-Vapi%20Road%2C%20GIDC%2C%20Vapi%2C%20Gujarat%20396195&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="420"
                   style={{ border: 0, borderRadius: '12px' }}

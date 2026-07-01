@@ -169,13 +169,18 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-xl);
   margin-top: var(--sp-2xl);
+  align-items: stretch;
 }
 
 .offer-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   background: var(--surface-white);
   border-radius: var(--radius-md);
   padding: var(--sp-xl);
   border-left: 4px solid;
+  min-height: 100%;
 }
 
 .offer-panel--red { border-left-color: var(--red-primary); }
