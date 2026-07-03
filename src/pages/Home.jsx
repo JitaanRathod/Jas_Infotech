@@ -78,13 +78,12 @@ const Home = () => {
             </div>
 
             <h1 className="hero__title">
-              Powering Your Business<br />
-              with <span>Smart Technology</span>
+              One partner for <span>Tally</span>, Cloud, and Business Hardware
             </h1>
 
             <p className="hero__subtitle">
-              Tally solutions, cloud services, and enterprise hardware —
-              all from one trusted partner in Vapi.
+              From GST-ready accounting to secure local systems and fast installation,
+              we help Vapi businesses stay productive every day.
             </p>
 
             <div className="hero__ctas">
@@ -100,9 +99,84 @@ const Home = () => {
 
           {/* Right visual */}
           <div className="hero__visual" aria-hidden="true">
-            <div className="hero__image-card">
-              <img src={img9} alt="Business laptop for enterprise use" />
-              <div className="hero__image-glow" />
+            <div className="hero__illustration">
+              <div className="hero__illustration-shell">
+                <div className="hero__illustration-header">
+                  <div className="hero__illustration-badge">Live business dashboard</div>
+                  <div className="hero__illustration-pill">Authorized partner</div>
+                </div>
+
+                <div className="hero__illustration-card">
+                  <div className="hero__illustration-card__title">Business systems simplified</div>
+                  <div className="hero__illustration-window">
+                    <div className="hero__window-bar">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                    <div className="hero__window-body">
+                      <div className="hero__window-side">
+                        <div className="hero__window-chip hero__window-chip--primary">Tally Prime</div>
+                        <div className="hero__window-chip hero__window-chip--secondary">Cloud Sync</div>
+                      </div>
+                      <div className="hero__window-graph">
+                        <div className="hero__window-stat hero__window-stat--left">
+                          <strong>4.8</strong>
+                          <span>Rating</span>
+                        </div>
+                        <div className="hero__window-graph-lines">
+                          <div className="hero__window-line hero__window-line--one" />
+                          <div className="hero__window-line hero__window-line--two" />
+                          <div className="hero__window-line hero__window-line--three" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="hero__illustration-stats">
+                    <div>
+                      <strong>500+</strong>
+                      <span>Happy clients</span>
+                    </div>
+                    <div>
+                      <strong>24/7</strong>
+                      <span>Support</span>
+                    </div>
+                    <div>
+                      <strong>99.9%</strong>
+                      <span>Uptime</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hero__illustration-features">
+                  <div className="hero__feature-pill">
+                    <Cloud size={16} />
+                    <span>Cloud-ready Tally</span>
+                  </div>
+                  <div className="hero__feature-pill">
+                    <ShieldCheck size={16} />
+                    <span>Secure networks</span>
+                  </div>
+                  <div className="hero__feature-pill">
+                    <Package size={16} />
+                    <span>Hardware setup</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="hero__floating-card hero__floating-card--left">
+                <div className="hero__floating-title">On-site setup</div>
+                <div className="hero__floating-note">Fast installation and user training.</div>
+              </div>
+
+              <div className="hero__floating-card hero__floating-card--right">
+                <div className="hero__floating-title">Instant reporting</div>
+                <div className="hero__floating-note">Clear invoices, inventory and compliance data.</div>
+              </div>
+
+              <div className="hero__illustration-glow hero__illustration-glow--red" aria-hidden="true" />
+              <div className="hero__illustration-glow hero__illustration-glow--white" aria-hidden="true" />
             </div>
           </div>
         </div>
