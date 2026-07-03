@@ -17,6 +17,9 @@ import img2 from '../assets/image2.png';
 import img6 from '../assets/image6.png';
 import img8 from '../assets/image8.png';
 import img9 from '../assets/image9.png';
+import img10 from '../assets/image10.png';
+import img11 from '../assets/image11.jpg';
+import img12 from '../assets/image12.jpg';
 
 import '../styles/home.css';
 
@@ -136,10 +139,10 @@ const Home = () => {
                 <span className="hero__trust-avatar">RS</span>
                 <span className="hero__trust-avatar">MK</span>
                 <span className="hero__trust-avatar">PV</span>
-                <span className="hero__trust-avatar hero__trust-avatar--more">+5k</span>
+                <span className="hero__trust-avatar hero__trust-avatar--more">+1.5k</span>
               </div>
               <p className="hero__trust-text">
-                <strong>500+ businesses</strong> across Vapi &amp; Silvassa trust JAS Infotech
+                <strong>750+ businesses</strong> across Vapi &amp; Silvassa trust JAS Infotech
               </p>
             </div>
           </div>
@@ -161,13 +164,13 @@ const Home = () => {
             <div className="hero__stage">
               {/* Centerpiece product photography */}
               <div className="hero__product hero__product--main">
-                <img src={img9} alt="" loading="eager" />
+                <img src={img10} alt="" loading="eager" />
               </div>
               <div className="hero__product hero__product--router">
-                <img src={img1} alt="" loading="eager" />
+                <img src={img11} alt="" loading="eager" />
               </div>
               <div className="hero__product hero__product--printer">
-                <img src={img6} alt="" loading="eager" />
+                <img src={img12} alt="" loading="eager" />
               </div>
 
               {/* Floating glass stat cards */}
@@ -194,7 +197,7 @@ const Home = () => {
               <div className="hero__pill hero__pill--cloud">
                 <Cloud size={14} />
                 <span>Cloud-ready Tally</span>
-              </div>
+              </div>  
 
               <div className="hero__pill hero__pill--setup">
                 <Package size={14} />
@@ -231,9 +234,9 @@ const Home = () => {
         <div className="container">
           <div className="stats-bar__inner">
             {[
-              { icon: Users,   target: 500, suffix: '+', label: 'Happy Clients' },
+              { icon: Users,   target: 1200, suffix: '+', label: 'Happy Clients' },
               { icon: Clock,   target: 15,  suffix: '+', label: 'Years Experience' },
-              { icon: Package, target: 1000, suffix: '+', label: 'Products Sold' },
+              { icon: Package, target: 3000, suffix: '+', label: 'Products Sold' },
               { icon: Headphones, target: 24, suffix: '/7', label: 'Support' },
             ].map(({ icon: Icon, target, suffix, label }) => (
               <div className="stats-bar__item" key={label}>
