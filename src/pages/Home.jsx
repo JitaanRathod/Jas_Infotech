@@ -1,9 +1,10 @@
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  BadgeCheck, ArrowRight, BarChart3, MessageCircle, Cloud,
+  ArrowRight, BarChart3, MessageCircle, Cloud,
   ShieldCheck, Headphones, Zap, MapPin, Users, Clock, Package,
   Factory, ShoppingBag, GraduationCap, HeartPulse,
-  Phone
+  Phone, Sparkles, TrendingUp, ChevronDown
 } from 'lucide-react';
 
 import ScrollReveal from '../components/ScrollReveal';
@@ -13,10 +14,14 @@ import ServiceCard from '../components/ServiceCard';
 
 import img1 from '../assets/image1.png';
 import img2 from '../assets/image2.png';
+import img6 from '../assets/image6.png';
 import img8 from '../assets/image8.png';
 import img9 from '../assets/image9.png';
 
 import '../styles/home.css';
+
+/* ---- Brands (marquee strip) ---- */
+const BRANDS = ['Tally Prime', 'HP', 'Dell', 'Lenovo', 'Netgear', 'D-Link', 'WD', 'TP-Link'];
 
 /* ---- Data ---- */
 const SERVICES = [
@@ -63,22 +68,52 @@ const INDUSTRY_TEASERS = [
 
 /* ---- Component ---- */
 const Home = () => {
+  const visualRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const el = visualRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    setTilt({ x: px, y: py });
+  };
+
+  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
+
   return (
     <>
       {/* ========== HERO ========== */}
-      <section className="hero" aria-label="Hero">
-        <div className="hero__bg-grid" aria-hidden="true" />
+      <section
+        className="hero"
+        aria-label="Hero"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="hero__bg" aria-hidden="true">
+          <div className="hero__mesh hero__mesh--1" />
+          <div className="hero__mesh hero__mesh--2" />
+          <div className="hero__mesh hero__mesh--3" />
+          <div className="hero__bg-grid" />
+          <div className="hero__particles">
+            {Array.from({ length: 14 }).map((_, i) => (
+              <span key={i} className={`hero__particle hero__particle--${(i % 6) + 1}`} />
+            ))}
+          </div>
+        </div>
 
         <div className="hero__inner">
           {/* Left content */}
           <div className="hero__content">
             <div className="hero__badge">
-              <BadgeCheck size={14} />
-              Authorized Hardware and Software Solutions Provider
+              <Sparkles size={14} />
+              Authorized Hardware &amp; Software Solutions Provider
             </div>
 
             <h1 className="hero__title">
-              One partner for <span>Tally</span>, Cloud, and Business Hardware
+              One partner for <span className="hero__title-gradient">Tally</span>,
+              Cloud &amp; Business Hardware
             </h1>
 
             <p className="hero__subtitle">
@@ -95,90 +130,99 @@ const Home = () => {
                 Contact Us →
               </Link>
             </div>
+
+            <div className="hero__trust">
+              <div className="hero__trust-avatars" aria-hidden="true">
+                <span className="hero__trust-avatar">RS</span>
+                <span className="hero__trust-avatar">MK</span>
+                <span className="hero__trust-avatar">PV</span>
+                <span className="hero__trust-avatar hero__trust-avatar--more">+5k</span>
+              </div>
+              <p className="hero__trust-text">
+                <strong>500+ businesses</strong> across Vapi &amp; Silvassa trust JAS Infotech
+              </p>
+            </div>
           </div>
 
           {/* Right visual */}
-          <div className="hero__visual" aria-hidden="true">
-            <div className="hero__illustration">
-              <div className="hero__illustration-shell">
-                <div className="hero__illustration-header">
-                  <div className="hero__illustration-badge">Live business dashboard</div>
-                  <div className="hero__illustration-pill">Authorized partner</div>
+          <div
+            className="hero__visual"
+            ref={visualRef}
+            aria-hidden="true"
+            style={{
+              '--tiltX': tilt.x.toFixed(3),
+              '--tiltY': tilt.y.toFixed(3),
+            }}
+          >
+            <div className="hero__glow hero__glow--red" />
+            <div className="hero__glow hero__glow--white" />
+            <div className="hero__ring" />
+
+            <div className="hero__stage">
+              {/* Centerpiece product photography */}
+              <div className="hero__product hero__product--main">
+                <img src={img9} alt="" loading="eager" />
+              </div>
+              <div className="hero__product hero__product--router">
+                <img src={img1} alt="" loading="eager" />
+              </div>
+              <div className="hero__product hero__product--printer">
+                <img src={img6} alt="" loading="eager" />
+              </div>
+
+              {/* Floating glass stat cards */}
+              <div className="hero__glass-card hero__glass-card--rating">
+                <div className="hero__glass-card__icon">
+                  <TrendingUp size={16} />
                 </div>
-
-                <div className="hero__illustration-card">
-                  <div className="hero__illustration-card__title">Business systems simplified</div>
-                  <div className="hero__illustration-window">
-                    <div className="hero__window-bar">
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                    <div className="hero__window-body">
-                      <div className="hero__window-side">
-                        <div className="hero__window-chip hero__window-chip--primary">Tally Prime</div>
-                        <div className="hero__window-chip hero__window-chip--secondary">Cloud Sync</div>
-                      </div>
-                      <div className="hero__window-graph">
-                        <div className="hero__window-stat hero__window-stat--left">
-                          <strong>4.8</strong>
-                          <span>Rating</span>
-                        </div>
-                        <div className="hero__window-graph-lines">
-                          <div className="hero__window-line hero__window-line--one" />
-                          <div className="hero__window-line hero__window-line--two" />
-                          <div className="hero__window-line hero__window-line--three" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="hero__illustration-stats">
-                    <div>
-                      <strong>500+</strong>
-                      <span>Happy clients</span>
-                    </div>
-                    <div>
-                      <strong>24/7</strong>
-                      <span>Support</span>
-                    </div>
-                    <div>
-                      <strong>99.9%</strong>
-                      <span>Uptime</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="hero__illustration-features">
-                  <div className="hero__feature-pill">
-                    <Cloud size={16} />
-                    <span>Cloud-ready Tally</span>
-                  </div>
-                  <div className="hero__feature-pill">
-                    <ShieldCheck size={16} />
-                    <span>Secure networks</span>
-                  </div>
-                  <div className="hero__feature-pill">
-                    <Package size={16} />
-                    <span>Hardware setup</span>
-                  </div>
+                <div>
+                  <strong>4.8 / 5</strong>
+                  <span>Client rating</span>
                 </div>
               </div>
 
-              <div className="hero__floating-card hero__floating-card--left">
-                <div className="hero__floating-title">On-site setup</div>
-                <div className="hero__floating-note">Fast installation and user training.</div>
+              <div className="hero__glass-card hero__glass-card--uptime">
+                <div className="hero__glass-card__icon hero__glass-card__icon--alt">
+                  <ShieldCheck size={16} />
+                </div>
+                <div>
+                  <strong>99.9%</strong>
+                  <span>System uptime</span>
+                </div>
               </div>
 
-              <div className="hero__floating-card hero__floating-card--right">
-                <div className="hero__floating-title">Instant reporting</div>
-                <div className="hero__floating-note">Clear invoices, inventory and compliance data.</div>
+              <div className="hero__pill hero__pill--cloud">
+                <Cloud size={14} />
+                <span>Cloud-ready Tally</span>
               </div>
 
-              <div className="hero__illustration-glow hero__illustration-glow--red" aria-hidden="true" />
-              <div className="hero__illustration-glow hero__illustration-glow--white" aria-hidden="true" />
+              <div className="hero__pill hero__pill--setup">
+                <Package size={14} />
+                <span>On-site setup</span>
+              </div>
+
+              <div className="hero__pill hero__pill--support">
+                <Headphones size={14} />
+                <span>24/7 support</span>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div className="hero__scroll-cue" aria-hidden="true">
+          <span>Scroll to explore</span>
+          <ChevronDown size={16} className="hero__scroll-cue-icon" />
+        </div>
+      </section>
+
+      {/* ========== BRAND MARQUEE ========== */}
+      <section className="brand-marquee" aria-label="Brands we work with">
+        <div className="brand-marquee__track">
+          {[...BRANDS, ...BRANDS].map((b, i) => (
+            <span className="brand-marquee__item" key={`${b}-${i}`}>
+              {b}
+            </span>
+          ))}
         </div>
       </section>
 
@@ -304,12 +348,13 @@ const Home = () => {
             <div className="cta-banner__inner">
               <h2>Ready to Upgrade Your Business Technology?</h2>
               <p>Talk to our experts today — no commitment required.</p>
-              <a
+              <a>
                 href="tel:+919824186968"
                 className="btn btn--white"
                 id="cta-call-btn"
                 aria-label="Call JAS Infotech"
-              >
+              </a>
+              <a>
                 <Phone size={16} />
                 Call Now: +91 98241 86968
               </a>
