@@ -42,10 +42,15 @@ const Navbar = () => {
     <header>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
         <div className="navbar__inner">
-          {/* Logo */}
-          <Link to="/" className="navbar__logo" onClick={closeMenu} aria-label="JAS Infotech Home">
-            <img src={logo} alt="JAS Infotech" />
-          </Link>
+          {/* Logo and Brand */}
+          <div className="navbar__brand">
+            <Link to="/" className="navbar__logo" onClick={closeMenu} aria-label="JAS Infotech Home">
+              <img src={logo} alt="JAS Infotech" />
+            </Link>
+            <span className="navbar__brand-text">
+              <span className="navbar__brand-accent">J</span>AS IN<span className="navbar__brand-accent">F</span>OTECH
+            </span>
+          </div>
 
           {/* Desktop nav links */}
           <ul className="navbar__links" role="list">

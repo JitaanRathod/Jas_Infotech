@@ -18,8 +18,8 @@ import img6 from '../assets/image6.png';
 import img8 from '../assets/image8.png';
 import img9 from '../assets/image9.png';
 import img10 from '../assets/image10.png';
-import img11 from '../assets/image11.jpg';
-import img12 from '../assets/image12.jpg';
+import img11 from '../assets/image11.png';
+import img12 from '../assets/image12.png';
 
 import '../styles/home.css';
 
