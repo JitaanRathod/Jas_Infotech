@@ -73,7 +73,7 @@
 
 .contact-split__inner {
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 1fr;
   gap: var(--sp-2xl);
   align-items: start;
 }

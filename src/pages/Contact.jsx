@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
-import ContactForm from '../components/ContactForm';
 import '../styles/contact.css';
 
 const Contact = () => {
@@ -79,23 +78,18 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ========== FORM + MAP ========== */}
-      <section className="contact-split" aria-labelledby="contact-form-heading">
+      {/* ========== MAP ========== */}
+      <section className="contact-split" aria-labelledby="contact-map-heading">
         <div className="container">
           <div className="contact-split__inner">
-            {/* Form */}
-            <ScrollReveal>
-              <ContactForm />
-            </ScrollReveal>
-
             {/* Map */}
-            <ScrollReveal delay={200}>
+            <ScrollReveal>
               <div className="contact-map">
-                <h3>Find Us on the Map</h3>
+                <h3 id="contact-map-heading">Find Us on the Map</h3>
                 <iframe
                   src="https://maps.google.com/maps?q=JAS%20Infotech%2C%20Shop%20No.%209%2C%20Char%20Rasta%2C%20Silvassa-Vapi%20Road%2C%20GIDC%2C%20Vapi%2C%20Gujarat%20396195&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
-                  height="420"
+                  height="580"
                   style={{ border: 0, borderRadius: '12px' }}
                   allowFullScreen
                   loading="lazy"
